@@ -13,7 +13,7 @@ import { Server } from 'hapi';
 
 config.loadFile(configFiles);
 
-import '../env';
+import './env';
 
 interface PharmacyServer extends Server {
   permissions: PermissionOnRedis;
@@ -68,10 +68,7 @@ interface PermitResponse {
 
 type validate = (application: PharmacyServer) => Promise<PermitResponse>;
 
-const validate = (application: PharmacyServer) => async (
-  { role },
-  { route },
-): Promise<PermitResponse> => {
+const validate = (application: PharmacyServer) => async ({ role }, { route }): Promise<PermitResponse> => {
   const permissions = await permit.getPermissions({
     role,
     datasource: await datasource(application),
@@ -94,24 +91,8 @@ export default (): Promise<Server> =>
     },
     routes,
     services,
-    plugins: [
-      { plugin: hapiAuthJwt2, options: {} },
-      {
-        plugin: redisPlugin,
-        options: {
-          mode: config.get('redis.mode'),
-          options: config.get('redis.options'),
-        },
-      },
-    ],
     postRegisterHook: async application => {
-      application.auth.strategy('jwt', 'jwt', {
-        key: config.get('jwt.secret'),
-        validate: await validate(application),
-        verifyOptions: { algorithms: ['HS256'] },
-        urlKey: false,
-      });
-      application.auth.default('jwt');
+      application !== null;
     },
     swaggerOptions: {
       auth: false,
