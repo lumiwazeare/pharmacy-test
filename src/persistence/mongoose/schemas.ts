@@ -25,7 +25,7 @@ export const MetaSchema: Schema = new Schema(
     updated: { type: Date },
     created: { type: Date },
   },
-  { _id: false },
+  { _id: false }
 );
 
 export const SCHEMAS = {};

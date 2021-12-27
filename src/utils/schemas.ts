@@ -116,13 +116,12 @@ export const responseDocumentSchema = (template): object => ({
   },
 });
 
-export const validateObjectId = (validator: Root): StringSchema =>
-  validator.string().regex(/\b[0-9a-fA-F]{24}\b/);
+export const validateObjectId = (validator: Root): StringSchema => validator.string().regex(/\b[0-9a-fA-F]{24}\b/);
 
 export const createPaginationLink = (endpoint: string): Function => (
   page: number,
   limit?: number,
-  offset?: number,
+  offset?: number
 ): object => ({
   href: `/${endpoint}?page=${page}&limit=${limit}${offset ? `&offset=${offset}` : ''}`,
 });
