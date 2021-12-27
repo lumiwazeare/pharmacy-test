@@ -234,6 +234,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.0"
 
+"@babel/runtime@7.10.2":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.16.0", "@babel/template@^7.3.3":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.16.0.tgz#d16a35ebf4cd74e202083356fab21dd89363ddd6"
@@ -302,12 +309,12 @@
     ramda "0.25.0"
     uuid "3.2.1"
 
-"@ctt/redis-client@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@ctt/redis-client/-/redis-client-0.0.1.tgz#cdc9f23ab5e7147e3e58c58c525acdf51e7b8a72"
-  integrity sha512-+MjpuMnv9OFwnTx3KxPubPqJ8ewpd6s5ZVeAu+9TpTm8lh+PPp/H1YGHrdzqyHXdauapmYjqNB5/cvZGvEzNCw==
+"@ctt/redis-client@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@ctt/redis-client/-/redis-client-0.0.2.tgz#2c500521d887b3776ed0c97b4f698c14fc346ffc"
+  integrity sha512-PZ2XnrE/DnsSmEdrbUWNPAOYLzTDx/BPSzojied9Yr7kdMt83ThkJZpLueoYrqeRCZOnjr47XW2fIPha6aIi4A==
   dependencies:
-    "@ctt/service-utils" "1.3.9"
+    "@ctt/service-utils" "1.3.25"
     "@hapi/joi" "17.1.0"
     ioredis "4.17.3"
 
@@ -315,29 +322,6 @@
   version "1.3.25"
   resolved "https://registry.yarnpkg.com/@ctt/service-utils/-/service-utils-1.3.25.tgz#439448ce66f6f2d0038b59f371c414583db64edf"
   integrity sha512-EQ7/7HeT36xSpEfN8HjBVx4YiT2GGAhECJolzAepsbjjO0FeIsXf/xUalMVE0o7tpSM9ZZ8U62z00O9sMQfysA==
-  dependencies:
-    bcryptjs "2.4.3"
-    bson "4.0.4"
-    convict "4.3.2"
-    dotenv "6.0.0"
-    fast-csv "2.4.1"
-    fstream "1.0.12"
-    isomorphic-fetch "2.2.1"
-    jsonwebtoken "8.3.0"
-    moment-timezone "0.5.21"
-    mongodb "3.5.5"
-    qrcode "1.2.2"
-    ramda "0.25.0"
-    speakeasy "2.0.0"
-    tar "6.0.1"
-    tea-school "^1.5.0"
-    toys "2.2.1"
-    winston "3.2.1"
-
-"@ctt/service-utils@1.3.9":
-  version "1.3.9"
-  resolved "https://registry.yarnpkg.com/@ctt/service-utils/-/service-utils-1.3.9.tgz#4e22f76ab023b557308228a59472956dbeaab768"
-  integrity sha512-yPflq/XXhXAk5lLD3ogbEvtlYIqqui+HxnO4Ux6Te+YupP3Gzy0MszwGxdXa+tCSedp4qCh2tU9uwreE1pLZuQ==
   dependencies:
     bcryptjs "2.4.3"
     bson "4.0.4"
@@ -6653,6 +6637,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.13.4:
+  version "0.13.9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
