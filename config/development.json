@@ -1,0 +1,18 @@
+{
+  "server": {
+    "tlsCert": "../../../../certs/localhost.crt",
+    "tlsKey": "../../../../certs/localhost.key",
+    "tlsCa": "",
+    "port": 4090,
+    "secure": false
+  },
+  "mongo": {
+    "host": "mongodb://127.0.0.1:27017",
+    "database": "pharmacy",
+    "user": "user",
+    "pass": "password"
+  },
+  "jwt": {
+    "secret": "CraftTurf Ltd"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "name": "@ctt/pharmacy",
+  "version": "0.0.1",
+  "description": "Online pharmacy",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "yarn run build --watch src",
+    "clean": "rm -rf lib/*",
+    "dev": "nodemon",
+    "doc": "scripts/doc.sh @ctt/pharmacy",
+    "doc:lint": "scripts/doc_lint.sh @ctt/pharmacy",
+    "build:docker": "scripts/docker-build.sh",
+    "docker:permission": "chmod -R +x scripts/*.sh",
+    "run:docker": "yarn docker:permission && yarn build:docker && scripts/docker-run.sh",
+    "dump": "ts-node -- src/persistence/mongoose/backup.ts",
+    "lint": "eslint 'src/**'",
+    "prebuild": "yarn clean",
+    "postbuild": "yarn prettify:lib",
+    "prepublishOnly": "[ \"$NODE_ENV\" = \"production\" ] && exit 0; yarn build",
+    "prettify:lib": "prettier --write 'lib/**'",
+    "pretest": "yarn lint",
+    "seed": "ts-node -- src/persistence/mongoose/seed.ts",
+    "seed:prod": "node lib/persistence/mongoose/seed.js",
+    "start": "node lib/index.js",
+    "test": "jest --runInBand --no-cache",
+    "test:coverage": "jest --coverage",
+    "test:watch": "yarn test --watch",
+    "validate": "npm ls"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@types/convict": "4.2.1",
+    "@types/hapi": "18.0.3",
+    "@types/jest": "25.2.2",
+    "@types/joi": "14.3.4",
+    "@types/mongoose-lean-virtuals": "0.5.1",
+    "@types/mongoose-paginate-v2": "1.3.6",
+    "@typescript-eslint/eslint-plugin": "2.30.0",
+    "@typescript-eslint/parser": "2.30.0",
+    "@typescript-eslint/typescript-estree": "2.30.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-jest": "21.20.2",
+    "eslint-plugin-prettier": "3.1.2",
+    "factory-girl": "5.0.4",
+    "husky": "4.2.5",
+    "jest": "25.2.7",
+    "lint-staged": "10.1.3",
+    "nodemon": "^2.0.1",
+    "prettier": "2.0.5",
+    "ts-jest": "25.2.1",
+    "ts-node": "8.9.1",
+    "typescript": "3.8.3"
+  },
+  "dependencies": {
+    "@ctt/crud-api": "1.6.27",
+    "@ctt/redis-client": "0.0.1",
+    "@ctt/service-utils": "1.3.25",
+    "convict": "4.3.2",
+    "dotenv": "6.0.0",
+    "hapi-auth-jwt2": "8.1.0",
+    "mongoose": "5.9.5",
+    "mongoose-lean-virtuals": "0.6.2",
+    "mongoose-paginate-v2": "1.3.9",
+    "ramda": "0.25.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run test"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js, jsx, tsx, ts}": [
+      "eslint --fix",
+      "yarn test"
+    ]
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://https://github.com/CraftTurf/pharmacy-interview-test.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "craftturf <team@craftturf.com> (http://craftturf.com/)",
+  "license": "SEE LICENSE IN <LICENSE>"
+}
