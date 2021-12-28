@@ -66,12 +66,14 @@ To test the performance of your `Medication` data structure, populate with large
 1. You can follow the example [here](https://docs.mongodb.com/v2.6/tutorial/generate-test-data/).
  - Load 10,000 or more records.
  - Create samples from this online [drug](https://www.drugs.com/drug_information.html) database
+ - You can write your script in a language of your choice.
+ - Save your script in `/scripts` directory.
 
 
-2. Run the following search operations and make comments of your observations in `/doc/Test.md`:
+2. Run the following search operations usinf your favourite mongodb client tool (i.e. MongoDB compass) and make comments of your observations in terms of performance in `/doc/Test.md`:
 
  - `findById`
  - `findAll`
  - `findByExpirationDate`
 
-3. Make optimisation adjustments to `model.js` where necessary and add comments.
+3. Make optimisation adjustments to `model.ts` where necessary and add comments.
