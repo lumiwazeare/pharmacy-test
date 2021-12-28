@@ -6,6 +6,7 @@ You are required to complete as much as you can of the following tasks below.
 
 - `"node": ">=12"`
 - Install `yarn` globally
+- Install `mongod` version `4.4.10`
 - Add `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` npm token to your path.
 
 ## Task 1: Setup
