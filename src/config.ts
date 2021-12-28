@@ -1,4 +1,4 @@
-export default ({
+export default {
   service: {
     name: {
       doc: 'Service namespace',
@@ -40,4 +40,4 @@ export default ({
       },
     },
   },
-});
+};
