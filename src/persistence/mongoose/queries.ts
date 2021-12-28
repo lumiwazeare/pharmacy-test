@@ -1,3 +1,7 @@
 import { Dict, DbClient } from '@ctt/crud-api';
 
-export default (client: DbClient): Dict => ({}); // eslint-disable-line  no-unused-vars
+import medication from './Medication/queries';
+
+export default (client: DbClient): Dict => ({
+  medications: medication(client),
+}); // eslint-disable-line  no-unused-vars
