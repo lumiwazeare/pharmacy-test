@@ -1,6 +1,6 @@
 # CraftTurf - Senior Backend Engineering Test
 
-You are required to complete as much as you can of the following tasks below.
+You are required to complete **as much as you can** of the following tasks below.
 
 ## Prerequisites
 
@@ -27,12 +27,14 @@ $ curl -X 'GET' 'http://127.0.0.1:4090/monitoring/healthz' -H 'accept: applicati
 Study the FHIR [Medication](https://www.hl7.org/fhir/medication.html) (UML) model and its relationship with `Ingredient` and `Batch`.
 
 - Translate the model to codebase in `src/persistence/Medication/model.ts`.
-- The relationships should be maintained in the `MedicationSchema` as embedded collections.
+- The relationships should be maintained in the `MedicationSchema` as embedded document schema.
 - In `/doc/Test.md`, add comments on your design implementation and suggests ways it can be improved if any.
 
 ### NOTE
 
 - The `manufacturer` (brand name) attribute should be a text type field.
+- Only apply the design at the first level only i.e. the `identifier` could simply be represented by mongodb `ObjectId` as oppose to implementing the nested properties.
+- According to your best judgement, apply the appropriate data types to the schema fields.
 
 ## Task 3: Querying `Medication`
 
@@ -60,9 +62,9 @@ $ yarn test queries.test.ts
 3. Create a new operation; `findByExpirationDate`.
 
 
-## Task 4: Optimisation (BONUS)
+## Task 4: Performance & Optimisation (BONUS)
 
-To test the performance of your `Medication` data structure, populate with large dataset.
+To test the performance of your `Medication` collection, populate with a large dataset.
 
 1. You can follow the example [here](https://docs.mongodb.com/v2.6/tutorial/generate-test-data/).
  - Load 10,000 or more records.
@@ -71,7 +73,7 @@ To test the performance of your `Medication` data structure, populate with large
  - Save your script in `/scripts` directory.
 
 
-2. Run the following search operations usinf your favourite mongodb client tool (i.e. MongoDB compass) and make comments of your observations in terms of performance in `/doc/Test.md`:
+2. Run the following search operations using your favourite mongodb client tool (i.e. MongoDB compass) and make comments of your observations in terms of performance in `/doc/Test.md`:
 
  - `findById`
  - `findAll`
