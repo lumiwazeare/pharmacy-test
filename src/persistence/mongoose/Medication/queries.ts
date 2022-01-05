@@ -19,6 +19,10 @@ const findAll = async ({ payload }: QueryArgs): Promise<PaginateResult<Medicatio
     {
       ...pickBy(val => !!val, {
         name: path(['name'], payload),
+        manufacturer: path(['manufacturer'], payload) && {
+          $regex: '' + path(['manufacturer'], payload),
+          $options: 'i',
+        },
         'meta.created': path(['from'], payload) && {
           $gte: path(['from'], payload),
           $lte: path(['to'], payload),
@@ -31,7 +35,7 @@ const findAll = async ({ payload }: QueryArgs): Promise<PaginateResult<Medicatio
       offset: payload.offset,
       lean: true,
       leanWithId: true,
-      sort: { 'meta.created': 'desc', 'meta.updated': 'desc' },
+      sort: { 'meta.created': 'desc', 'meta.updated': 'desc', manufacturer: 'asc' },
     }
   );
 
@@ -39,7 +43,7 @@ const findById = async ({ payload }: QueryArgs): Promise<MedicationI> =>
   Medication.findById(payload.id).lean({ virtuals: true });
 
 const removeById = async ({ payload }: QueryArgs): Promise<object> =>
-  Medication.updateOne({ _id: payload.id }, { $set: { 'meta.active': false, 'meta.updated': Date.now() } });
+  Medication.remove({ _id: payload.id }, { $set: { 'meta.active': false, 'meta.updated': Date.now() } });
 
 const updateById = async ({ payload }: QueryArgs): Promise<object> =>
   Medication.updateOne(
